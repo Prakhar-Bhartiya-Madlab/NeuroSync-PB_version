@@ -1,6 +1,8 @@
 # NeuroSync
 Audio to face blendshape inference helper code.
 
+If using LiveLink local api, set your IP in here > livelink_init.py 
+
 Huggingface to get the model : https://huggingface.co/AnimaVR/NeuroSync-0.1a 
 
 This guide will help you convert audio input into real-time face animation data using our alpha version foundation model.
