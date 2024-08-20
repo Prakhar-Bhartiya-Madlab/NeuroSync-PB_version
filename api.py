@@ -1,11 +1,8 @@
-# This code is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
-# For more details, visit: https://creativecommons.org/licenses/by-nc/4.0/
-
-
 from flask import Flask, request, jsonify
 import numpy as np
 import torch
-
+from processing.audio_processing import process_audio_features
+from extraction.extract_features import extract_audio_features
 from generate_face_shapes import generate_facial_data_from_bytes
 from model import load_model
 
@@ -29,6 +26,11 @@ app = Flask(__name__)
 
 def preprocess_audio(audio_bytes):
     return generate_facial_data_from_bytes(audio_bytes, model, device)
+
+audio_file_path = 'sample_data/audio.wav'
+extracted_features, _ = extract_audio_features(audio_file_path)
+final_decoded_outputs = process_audio_features(extracted_features, model, device)
+print("Initial test output:", final_decoded_outputs)
 
 @app.route('/audio_to_blendshapes', methods=['POST'])
 def audio_to_blendshapes_route():
