@@ -6,7 +6,7 @@ from utils.audio.play_audio import play_audio_from_path
 from livelink.send_to_unreal import pre_encode_facial_data, send_pre_encoded_data_to_unreal
 from livelink.animations.default_animation import default_animation_loop, stop_default_animation
 
-GENERATED_DIR = 'generated/generated'
+GENERATED_DIR = 'generated'
 queue_lock = Lock()
 
 def list_generated_files():
