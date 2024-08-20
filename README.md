@@ -1,7 +1,7 @@
 # NeuroSync
 Audio to face blendshape inference helper code.
 
-Using the Foundation Model for Real-Time Face Animation
+Hugginface to get the model : https://huggingface.co/AnimaVR/NeuroSync-0.1a 
 
 This guide will help you convert audio input into real-time face animation data using our foundation model.
 
