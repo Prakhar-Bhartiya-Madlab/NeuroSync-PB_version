@@ -11,7 +11,6 @@ import torch.nn.functional as F
 def load_model(model_path, config, device):
     hidden_dim = config['hidden_dim']
     n_layers = config['n_layers']
-    dropout = config['dropout']
     num_heads = config['num_heads']
 
     encoder = Encoder(config['input_dim'], hidden_dim, n_layers, num_heads)
