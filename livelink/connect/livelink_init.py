@@ -7,7 +7,7 @@ import socket
 from livelink.connect.pylivelinkface import PyLiveLinkFace, FaceBlendShape
 
 
-UDP_IP = "0.0.0.0"
+UDP_IP = "0.0.0.0"  # set this to your local IP for Unreal Connection on a local PC installation
 UDP_PORT = 11111
 
 def create_socket_connection():
