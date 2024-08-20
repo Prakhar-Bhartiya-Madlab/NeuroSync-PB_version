@@ -7,7 +7,7 @@ import socket
 from livelink.connect.pylivelinkface import PyLiveLinkFace, FaceBlendShape
 
 
-UDP_IP = "192.168.0.8"
+UDP_IP = "0.0.0.0"
 UDP_PORT = 11111
 
 def create_socket_connection():
