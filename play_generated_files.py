@@ -6,7 +6,7 @@ import pygame
 
 from livelink.connect.livelink_init import create_socket_connection, initialize_py_face
 
-from generated.generated_utils import list_generated_files, load_facial_data_from_csv, run_audio_animation, default_animation_loop, stop_default_animation
+from utils.generated_utils import list_generated_files, load_facial_data_from_csv, run_audio_animation, default_animation_loop, stop_default_animation
 
 py_face = initialize_py_face()
 socket_connection = create_socket_connection()
