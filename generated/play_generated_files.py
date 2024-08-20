@@ -1,3 +1,7 @@
+# This code is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
+# For more details, visit: https://creativecommons.org/licenses/by-nc/4.0/
+# play_generated_files.py
+
 import sys
 import os
 
