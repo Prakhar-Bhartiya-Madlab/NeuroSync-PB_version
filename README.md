@@ -3,7 +3,9 @@ Audio to face blendshape inference helper code.
 
 Hugginface to get the model : https://huggingface.co/AnimaVR/NeuroSync-0.1a 
 
-This guide will help you convert audio input into real-time face animation data using our foundation model.
+This guide will help you convert audio input into real-time face animation data using our alpha version foundation model.
+
+A more permissive licence will come with later versions of the model.
 
 Dimensions output are (52 to 61 should be ignored, for now) :
 
