@@ -1,7 +1,7 @@
 # This code is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
 # For more details, visit: https://creativecommons.org/licenses/by-nc/4.0/
 # pylivelinkface.py
-# Hard work here done by https://github.com/JimWest/PyLiveLinkFace | 
+# Hard work here done by https://github.com/JimWest/PyLiveLinkFace
 
 from __future__ import annotations
 
