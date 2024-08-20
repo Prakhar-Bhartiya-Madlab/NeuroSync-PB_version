@@ -11,9 +11,23 @@ import uuid
 from utils.generate_face_shapes import generate_facial_data_from_bytes 
 from utils.csv.save_csv import save_generated_data_as_csv
 
-from api.api_config import model, device
+config = {
+    'sr': 88200,  
+    'frame_rate': 60,           
+    'hidden_dim':  1024,   
+    'n_layers': 4,
+    'num_heads': 4,    
+    'dropout': 0.0,        
+    'output_dim': 68,      
+    'input_dim': 26 + 26 + 26, 
+    'frame_size': 256,
+}
 
-GENERATED_DIR = 'generated/generated'
+model_path = '_out/model.pth'
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model = load_model(model_path, config, device)
+
+GENERATED_DIR = 'generated'
 
 def process_audio_files():
     directories = [d for d in os.listdir(GENERATED_DIR) if os.path.isdir(os.path.join(GENERATED_DIR, d))]
