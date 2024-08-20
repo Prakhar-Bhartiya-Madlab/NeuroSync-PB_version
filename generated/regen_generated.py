@@ -7,6 +7,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 import shutil
 import uuid
+import torch
+from model import load_model
 
 from utils.generate_face_shapes import generate_facial_data_from_bytes 
 from utils.csv.save_csv import save_generated_data_as_csv
