@@ -5,6 +5,13 @@ Hugginface to get the model : https://huggingface.co/AnimaVR/NeuroSync-0.1a
 
 This guide will help you convert audio input into real-time face animation data using our foundation model.
 
+Dimensions output are :
+
+EyeBlinkLeft	EyeLookDownLeft	EyeLookInLeft	EyeLookOutLeft	EyeLookUpLeft	EyeSquintLeft	EyeWideLeft	EyeBlinkRight	EyeLookDownRight	EyeLookInRight	EyeLookOutRight	EyeLookUpRight	EyeSquintRight	EyeWideRight	JawForward	JawRight	JawLeft	JawOpen	MouthClose	MouthFunnel	MouthPucker	MouthRight	MouthLeft	MouthSmileLeft	MouthSmileRight	MouthFrownLeft	MouthFrownRight	MouthDimpleLeft	MouthDimpleRight	MouthStretchLeft	MouthStretchRight	MouthRollLower	MouthRollUpper	MouthShrugLower	MouthShrugUpper	MouthPressLeft	MouthPressRight	MouthLowerDownLeft	MouthLowerDownRight	MouthUpperUpLeft	MouthUpperUpRight	BrowDownLeft	BrowDownRight	BrowInnerUp	BrowOuterUpLeft	BrowOuterUpRight	CheekPuff	CheekSquintLeft	CheekSquintRight	NoseSneerLeft	NoseSneerRight	TongueOut	HeadYaw	HeadPitch	HeadRoll	LeftEyeYaw	LeftEyePitch	LeftEyeRoll	RightEyeYaw	RightEyePitch	RightEyeRoll	| Angry	Disgusted	Fearful	Happy	Neutral	Sad	Surprised
+
+![image](https://github.com/user-attachments/assets/f0e8063d-f03c-4a34-8f2b-e6f581b3f418)
+
+
 The model processes batches of audio feature frames and outputs corresponding face blendshapes and emotion data.
 
 Input Requirements
