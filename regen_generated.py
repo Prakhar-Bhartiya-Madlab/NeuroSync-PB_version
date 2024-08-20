@@ -19,7 +19,7 @@ config = {
     'dropout': 0.0,        
     'output_dim': 68,      
     'input_dim': 26 + 26 + 26, 
-    'frame_size': 256,
+    'frame_size': 128,
 }
 
 model_path = '_out/model.pth'
