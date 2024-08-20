@@ -1,7 +1,7 @@
 # NeuroSync
 Audio to face blendshape inference helper code.
 
-If using LiveLink local api, set your IP in here > livelink_init.py 
+If using LiveLink local api, set your IP in :  livelink > connect > livelink_init.py 
 
 Youtube demo : https://www.youtube.com/watch?v=ZgUVQkhiPi8 
 
