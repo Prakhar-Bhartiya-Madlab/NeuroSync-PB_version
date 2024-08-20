@@ -9,8 +9,6 @@ Huggingface to get the model : https://huggingface.co/AnimaVR/NeuroSync-0.1a
 
 UE5 Demo project : https://drive.google.com/file/d/1jpG91_29ohro7YA3Mr6PF4S3TUVBuMGo/view?usp=sharing
 
-This guide will help you convert audio input into real-time face animation data using our alpha version foundation model.
-
 A more permissive licence will come with later versions of the model.
 
 Dimensions output are  :
