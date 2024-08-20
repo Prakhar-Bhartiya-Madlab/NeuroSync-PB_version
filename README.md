@@ -1,3 +1,3 @@
 # NeuroSync
-Audio to face inference helper code.
+Audio to face blendshape inference helper code.
 
