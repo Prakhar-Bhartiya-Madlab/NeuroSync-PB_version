@@ -5,8 +5,6 @@
 
 from processing.audio_processing_utils import pad_audio_chunk, decode_audio_chunk, concatenate_outputs, ensure_2d  
 
-
-
 def process_audio_features(audio_features, model, device, config):
     all_decoded_outputs = decode_audio(audio_features, model, device, config)
     final_decoded_outputs = postprocess_decoded_outputs(all_decoded_outputs)
