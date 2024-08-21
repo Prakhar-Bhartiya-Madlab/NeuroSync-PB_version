@@ -38,7 +38,7 @@ print("Model loaded successfully.")
 queue_lock = Lock()
 
 # ElevenLabs API configuration
-ELEVENLABS_API_KEY = "sk_f2e3ce35b1f579c447abd53ed229af30a7b4f90118e5a8a7"  # Replace with your actual ElevenLabs API key
+ELEVENLABS_API_KEY = ""  # Replace with your actual ElevenLabs API key
 VOICE_ID = "UDoSXdwuEuC59qu2AfUo"
 API_URL = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}/stream"
 
