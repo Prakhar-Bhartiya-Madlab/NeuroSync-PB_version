@@ -3,7 +3,7 @@ Audio to face blendshape inference helper code.
 
 If using LiveLink local api, set your IP in :  livelink > connect > livelink_init.py 
 
-Youtube demo : https://www.youtube.com/watch?v=ZgUVQkhiPi8 
+[Youtube demo : https://www.youtube.com/watch?v=ZgUVQkhiPi8 ](https://www.youtube.com/watch?v=bKzmtTfcaqc | Real-Time Text to Audio to Face Blendshape Animation Demo)
 
 Huggingface to get the model : https://huggingface.co/AnimaVR/NeuroSync-0.1a 
 
