@@ -2,6 +2,8 @@
 
 ![NeuroSync](./neuroLogo.jpg)
 
+Unreal Engine Real time TTSA (text to speech + animation) workflow : https://www.youtube.com/watch?v=bSOHY6vbXec 
+
 Real-Time Text to Audio to Face Blendshape Animation Demo | https://www.youtube.com/watch?v=bKzmtTfcaqc 
 
 QUICK START Guide (if you already have dependencies like torch installed) | https://www.youtube.com/watch?v=15XuM7-ZEMY 
