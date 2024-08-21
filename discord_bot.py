@@ -6,7 +6,7 @@ from discord.ext import commands
 import requests
 import json
 import os
-from pydub import AudioSegment  # Add this import
+from pydub import AudioSegment  
 
 # Add message content intent to the list of intents
 intents = discord.Intents.default()
