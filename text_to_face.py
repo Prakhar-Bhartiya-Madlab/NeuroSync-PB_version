@@ -39,7 +39,7 @@ queue_lock = Lock()
 
 # ElevenLabs API configuration
 ELEVENLABS_API_KEY = ""  # Replace with your actual ElevenLabs API key
-VOICE_ID = "UDoSXdwuEuC59qu2AfUo"
+VOICE_ID = ""
 API_URL = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}/stream"
 
 GENERATED_DIR = 'generated'
