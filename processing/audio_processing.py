@@ -5,7 +5,7 @@
 
 from processing.audio_processing_utils import pad_audio_chunk, decode_audio_chunk, concatenate_outputs, ensure_2d  
 
-inference_config = {'frame_size': 256}
+inference_config = {'frame_size': 128}
 
 def process_audio_features(audio_features, model, device):
     all_decoded_outputs = decode_audio(audio_features, model, device)
