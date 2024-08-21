@@ -1,4 +1,7 @@
 # NeuroSync
+
+![NeuroSync](./neuroLogo.jpg)
+
 Audio to face blendshape inference helper code.
 
 If using LiveLink local api, set your IP in :  livelink > connect > livelink_init.py 
