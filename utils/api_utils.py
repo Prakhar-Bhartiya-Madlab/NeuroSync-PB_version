@@ -36,8 +36,8 @@ def run_audio_animation(audio_bytes, encoded_facial_data, py_face, socket_connec
     audio_thread.join()
     data_thread.join()
 
-def preprocess_audio(audio_bytes, model, device):
-    return generate_facial_data_from_bytes(audio_bytes, model, device)
+def preprocess_audio(audio_bytes, model, device, config):
+    return generate_facial_data_from_bytes(audio_bytes, model, device, config)
 
 def save_generated_data(audio_bytes, generated_facial_data):
     unique_id = str(uuid.uuid4())
@@ -52,12 +52,12 @@ def save_generated_data(audio_bytes, generated_facial_data):
 
     return unique_id, audio_path, shapes_path
 
-def process_preprocessing_queue(request_queue, preprocessed_data_queue, model, device):
+def process_preprocessing_queue(request_queue, preprocessed_data_queue, model, device, config):
     while True:
         audio_bytes = request_queue.get()
         if audio_bytes is None:
             break
-        generated_facial_data = preprocess_audio(audio_bytes, model, device)
+        generated_facial_data = preprocess_audio(audio_bytes, model, device, config)
         save_generated_data(audio_bytes, generated_facial_data)
         preprocessed_data_queue.put((audio_bytes, generated_facial_data))
         request_queue.task_done()
