@@ -21,3 +21,5 @@ EyeBlinkLeft	EyeLookDownLeft	EyeLookInLeft	EyeLookOutLeft	EyeLookUpLeft	EyeSquin
 ![image](https://github.com/user-attachments/assets/f0e8063d-f03c-4a34-8f2b-e6f581b3f418)
 
 The model processes batches of audio feature frames and outputs corresponding face blendshapes and emotion data.
+
+![NeuroSync](recordIntoUnreal.png)
