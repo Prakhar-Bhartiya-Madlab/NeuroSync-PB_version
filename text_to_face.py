@@ -143,11 +143,12 @@ if __name__ == "__main__":
                 # Step 2: Generate facial data from the audio bytes
                 generated_facial_data = preprocess_audio(audio_bytes, model, device)
 
-                # Step 3: Save the generated data
-                save_generated_data(audio_bytes, generated_facial_data)
-
                 # Step 4: Play both the generated facial shapes and the audio
                 run_audio_animation(audio_bytes, generated_facial_data, py_face, socket_connection, default_animation_thread)
+                
+                # Step 3: Save the generated data (swapped as this is just so you have a record of what was generated, no need to hold up the playback...)
+                save_generated_data(audio_bytes, generated_facial_data)
+            
             else:
                 print("No text provided.")
     finally:
