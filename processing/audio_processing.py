@@ -5,10 +5,10 @@
 
 from processing.audio_processing_utils import pad_audio_chunk, decode_audio_chunk, concatenate_outputs, ensure_2d  
 
-inference_config = {'frame_size': 128}
 
-def process_audio_features(audio_features, model, device):
-    all_decoded_outputs = decode_audio(audio_features, model, device)
+
+def process_audio_features(audio_features, model, device, config):
+    all_decoded_outputs = decode_audio(audio_features, model, device, config)
     final_decoded_outputs = postprocess_decoded_outputs(all_decoded_outputs)
     return final_decoded_outputs
 
@@ -17,8 +17,8 @@ def postprocess_decoded_outputs(final_decoded_outputs):
     final_decoded_outputs[:, :61] /= 100 # scale the 0-100 down to 0 - 1 before playback.
     return final_decoded_outputs
 
-def decode_audio(normalized_audio_features, model, device):
-    frame_length = inference_config['frame_size']
+def decode_audio(normalized_audio_features, model, device, config):
+    frame_length = config['frame_size']
     num_features = normalized_audio_features.shape[1]
     num_frames = normalized_audio_features.shape[0]
     all_decoded_outputs = []
