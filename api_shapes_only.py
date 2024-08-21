@@ -18,7 +18,7 @@ config = {
     'dropout': 0.0,        
     'output_dim': 68,      
     'input_dim': 26 + 26 + 26, 
-    'frame_size': 128,
+    'frame_size': 256,
 }
 
 model_path = '_out/model.pth'
@@ -32,7 +32,7 @@ def preprocess_audio(audio_bytes):
 
 audio_file_path = 'sample_data/audio.wav'
 extracted_features, _ = extract_audio_features(audio_file_path)
-final_decoded_outputs = process_audio_features(extracted_features, model, device)
+final_decoded_outputs = process_audio_features(extracted_features, model, device, config)
 print("Initial test output:", final_decoded_outputs)
 
 @app.route('/audio_to_blendshapes', methods=['POST'])

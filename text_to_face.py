@@ -1,9 +1,8 @@
-# This code is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
-# For more details, visit: https://creativecommons.org/licenses/by-nc/4.0/
-
 import requests
 import pygame
 import torch
+import os
+import uuid
 from threading import Thread, Event, Lock
 
 from generate_face_shapes import generate_facial_data_from_bytes
@@ -11,6 +10,8 @@ from livelink.connect.livelink_init import create_socket_connection, initialize_
 from livelink.animations.default_animation import default_animation_loop, stop_default_animation
 from livelink.send_to_unreal import pre_encode_facial_data, send_pre_encoded_data_to_unreal
 from utils.audio.play_audio import play_audio_from_memory
+from utils.audio.save_audio import save_audio_file
+from utils.csv.save_csv import save_generated_data_as_csv
 from model import load_model
 
 # Configuration
@@ -23,7 +24,7 @@ config = {
     'dropout': 0.0,
     'output_dim': 68,
     'input_dim': 26 + 26 + 26,
-    'frame_size': 128,
+    'frame_size': 256,
 }
 
 model_path = '_out/model.pth'
@@ -37,9 +38,15 @@ print("Model loaded successfully.")
 queue_lock = Lock()
 
 # ElevenLabs API configuration
-ELEVENLABS_API_KEY = "YOUR-API-KEY"  # Replace with your actual ElevenLabs API key
-VOICE_ID = "YOUR-VOICE-ID"
+ELEVENLABS_API_KEY = "sk_f2e3ce35b1f579c447abd53ed229af30a7b4f90118e5a8a7"  # Replace with your actual ElevenLabs API key
+VOICE_ID = "UDoSXdwuEuC59qu2AfUo"
 API_URL = f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}/stream"
+
+GENERATED_DIR = 'generated'
+
+def initialize_directories():
+    if not os.path.exists(GENERATED_DIR):
+        os.makedirs(GENERATED_DIR)
 
 def get_elevenlabs_audio(text):
     headers = {
@@ -66,7 +73,20 @@ def get_elevenlabs_audio(text):
 
 def preprocess_audio(audio_bytes, model, device):
     # Generate facial data from the audio bytes directly
-    return generate_facial_data_from_bytes(audio_bytes, model, device)
+    return generate_facial_data_from_bytes(audio_bytes, model, device, config)
+
+def save_generated_data(audio_bytes, generated_facial_data):
+    unique_id = str(uuid.uuid4())
+    output_dir = os.path.join(GENERATED_DIR, unique_id)
+    os.makedirs(output_dir, exist_ok=True)
+
+    audio_path = os.path.join(output_dir, 'audio.wav')
+    shapes_path = os.path.join(output_dir, 'shapes.csv')
+
+    save_audio_file(audio_bytes, audio_path)
+    save_generated_data_as_csv(generated_facial_data, shapes_path)
+
+    return unique_id, audio_path, shapes_path
 
 def run_audio_animation(audio_bytes, generated_facial_data, py_face, socket_connection, default_animation_thread):
     with queue_lock:
@@ -101,6 +121,9 @@ def run_audio_animation(audio_bytes, generated_facial_data, py_face, socket_conn
         default_animation_thread.start()
 
 if __name__ == "__main__":
+    # Initialize directories
+    initialize_directories()
+
     # Initialize PyFace and the default animation
     py_face = initialize_py_face()
     socket_connection = create_socket_connection()
@@ -119,8 +142,11 @@ if __name__ == "__main__":
 
                 # Step 2: Generate facial data from the audio bytes
                 generated_facial_data = preprocess_audio(audio_bytes, model, device)
-                
-                # Step 3: Play both the generated facial shapes and the audio
+
+                # Step 3: Save the generated data
+                save_generated_data(audio_bytes, generated_facial_data)
+
+                # Step 4: Play both the generated facial shapes and the audio
                 run_audio_animation(audio_bytes, generated_facial_data, py_face, socket_connection, default_animation_thread)
             else:
                 print("No text provided.")

@@ -23,7 +23,7 @@ config = {
     'dropout': 0.0,        
     'output_dim': 68,      
     'input_dim': 26 + 26 + 26, 
-    'frame_size': 128,
+    'frame_size': 256,
 }
 
 model_path = '_out/model.pth'
@@ -73,7 +73,7 @@ def clear_queue_route():
     return jsonify({'status': 'cleared'})
 
 if __name__ == '__main__':
-    preprocessing_queue_thread = Thread(target=process_preprocessing_queue, args=(request_queue, preprocessed_data_queue, model, device))
+    preprocessing_queue_thread = Thread(target=process_preprocessing_queue, args=(request_queue, preprocessed_data_queue, model, device, config))
     preprocessing_queue_thread.start()
     
     playback_queue_thread = Thread(target=process_playback_queue, args=(preprocessed_data_queue, py_face, default_animation_thread, request_queue))

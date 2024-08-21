@@ -1,6 +1,7 @@
 # regen_generated.py
 # This code is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
 # For more details, visit: https://creativecommons.org/licenses/by-nc/4.0/
+
 import os
 import shutil
 import uuid
@@ -19,7 +20,7 @@ config = {
     'dropout': 0.0,        
     'output_dim': 68,      
     'input_dim': 26 + 26 + 26, 
-    'frame_size': 128,
+    'frame_size': 256,
 }
 
 model_path = '_out/model.pth'
@@ -42,7 +43,7 @@ def process_audio_files():
             with open(audio_path, 'rb') as f:
                 audio_bytes = f.read()
             
-            generated_facial_data = generate_facial_data_from_bytes(audio_bytes, model, device)
+            generated_facial_data = generate_facial_data_from_bytes(audio_bytes, model, device, config)
             
             old_dir = os.path.join(dir_path, 'old')
             os.makedirs(old_dir, exist_ok=True)
