@@ -5,7 +5,7 @@ If using LiveLink local api, set your IP in :  livelink > connect > livelink_ini
 
 https://www.youtube.com/watch?v=bKzmtTfcaqc | Real-Time Text to Audio to Face Blendshape Animation Demo
 
-Huggingface to get the model : https://huggingface.co/AnimaVR/NeuroSync-0.1a 
+Huggingface to get the model : https://huggingface.co/AnimaVR/NeuroSync-0.1a (128 frame input) or https://huggingface.co/AnimaVR/NeuroSync-0.1b/ (256 frame input)
 
 UE5 Demo project : https://drive.google.com/file/d/1jpG91_29ohro7YA3Mr6PF4S3TUVBuMGo/view?usp=sharing
 
