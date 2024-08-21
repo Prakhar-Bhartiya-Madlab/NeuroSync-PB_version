@@ -16,7 +16,7 @@ def postprocess_decoded_outputs(final_decoded_outputs):
     return final_decoded_outputs
 
 def decode_audio(normalized_audio_features, model, device, config):
-    frame_length = config['frame_size']
+    frame_length = config['frame_size'] # now brings this through from the root py so you can set frame size to 128 or 256 depending on your model more easily.... 
     num_features = normalized_audio_features.shape[1]
     num_frames = normalized_audio_features.shape[0]
     all_decoded_outputs = []
