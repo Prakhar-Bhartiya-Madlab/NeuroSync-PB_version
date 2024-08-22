@@ -37,7 +37,7 @@ class PyLiveLinkFace:
         self._filter_size = filter_size
         self._version = 6
         
-        self._scaling_factor = 1.0
+        self._scaling_factor = 1.2 # increase this to make the animation more pronounced to get more emotion. Enable smoothing in generate_face_shapes.py to smooth any stutter.
 
         now = datetime.datetime.now()
         timcode = Timecode(self.fps, f'{now.hour}:{now.minute}:{now.second}:{now.microsecond * 0.001}')
