@@ -8,7 +8,7 @@ import numpy as np
 import librosa
 import io
 
-from extraction.extract_features_utils import extract_overlapping_mfcc, reduce_features, smooth_features
+from extraction.extract_features_utils import extract_overlapping_mfcc, reduce_features
 
 def load_and_preprocess_audio(audio_path, sr=88200):
     y, sr = load_audio(audio_path, sr)
