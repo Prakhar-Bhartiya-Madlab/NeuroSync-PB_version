@@ -8,7 +8,7 @@ import numpy as np
 from extraction.extract_features import extract_audio_features
 from processing.audio_processing import process_audio_features
 
-def generate_facial_data_from_bytes(audio_bytes, model, device, config, use_smoothing=True):
+def generate_facial_data_from_bytes(audio_bytes, model, device, config, use_smoothing=True): # enable smoothing to reduce any stutter when increasing the scale in livelink > connect > pylivelinkface.py, more data/training will remove the need for this in the future.
     
     audio_features, y = extract_audio_features(audio_bytes, from_bytes=True)
     
