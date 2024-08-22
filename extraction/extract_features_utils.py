@@ -10,19 +10,17 @@ def cepstral_mean_variance_normalization(mfcc):
     std = np.std(mfcc, axis=1, keepdims=True)
     return (mfcc - mean) / (std + 1e-10)
 
-def extract_overlapping_mfcc(chunk, sr, num_mfcc, frame_length, hop_length, include_deltas=True, include_cepstral=True):
+def extract_overlapping_mfcc(chunk, sr, num_mfcc, frame_length, hop_length):
     mfcc = librosa.feature.mfcc(y=chunk, sr=sr, n_mfcc=num_mfcc, n_fft=frame_length, hop_length=hop_length)
     
-    if include_cepstral:
-        mfcc = cepstral_mean_variance_normalization(mfcc)
+
+    mfcc = cepstral_mean_variance_normalization(mfcc)
     
-    if include_deltas:
-        delta_mfcc = librosa.feature.delta(mfcc)
-        delta2_mfcc = librosa.feature.delta(mfcc, order=2)
-        combined_mfcc = np.vstack([mfcc, delta_mfcc, delta2_mfcc])
-        return combined_mfcc
-    else:
-        return mfcc
+    delta_mfcc = librosa.feature.delta(mfcc)
+    delta2_mfcc = librosa.feature.delta(mfcc, order=2)
+    combined_mfcc = np.vstack([mfcc, delta_mfcc, delta2_mfcc])
+
+    return combined_mfcc
 
 def reduce_features(features):
     num_frames = features.shape[1]
