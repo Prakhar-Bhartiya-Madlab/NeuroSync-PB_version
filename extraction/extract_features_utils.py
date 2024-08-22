@@ -30,9 +30,3 @@ def reduce_features(features):
     
     return reduced_final_features
 
-def smooth_features(features):
-    smoothed_features = np.copy(features)
-    for i in range(1, len(features)):
-        smoothed_features[i] = (features[i - 1] + features[i]) / 2
-    return smoothed_features
-
