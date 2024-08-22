@@ -17,7 +17,7 @@ def generate_facial_data_from_bytes(audio_bytes, model, device, config, use_smoo
   
     final_decoded_outputs = process_audio_features(audio_features, model, device, config)
 
-    if use_smoothing:
+    if use_smoothing: # this essentially takes a 60fps stuttery feed and blends frame pairs to smooth it if needed. Might be needed if scale is too high (anything over 1.2ish).
         final_decoded_outputs = smooth_by_averaging_pairs(final_decoded_outputs)
 
     return final_decoded_outputs
