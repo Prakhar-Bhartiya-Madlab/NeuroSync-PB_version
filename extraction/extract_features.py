@@ -45,20 +45,17 @@ def extract_audio_features(audio_input, sr=88200, from_bytes=False):
         print(f"Audio file is too short: {num_frames} frames, required: {min_frames} frames")
         return None, None
 
-    combined_features = extract_and_combine_features(y, sr, frame_length, hop_length, apply_smoothing=False)
+    combined_features = extract_and_combine_features(y, sr, frame_length, hop_length)
     
     return combined_features, y
 
-def extract_and_combine_features(y, sr, frame_length, hop_length,  apply_smoothing):
+def extract_and_combine_features(y, sr, frame_length, hop_length):
     all_features = []
     num_mfcc = 26 
     
     mfcc_features = extract_overlapping_mfcc(y, sr, num_mfcc, frame_length, hop_length)
     reduced_mfcc_features = reduce_features(mfcc_features)
-    
-    if apply_smoothing:
-        reduced_mfcc_features = smooth_features(reduced_mfcc_features)
-        
+   
     all_features.append(reduced_mfcc_features.T)  
    
     combined_features = np.hstack(all_features)
